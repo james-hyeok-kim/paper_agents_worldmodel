@@ -1,0 +1,434 @@
+{
+  "verdict": "FAIL",
+  "verdict_reason": "\ub450 \uac8c\uc774\ud2b8 \ub3d9\uc2dc \ud1b5\uacfc\uac00 degenerate(low_action) regime\uc5d0\uc11c\ub9cc \ubc1c\uc0dd. action\uc774 latent\uc5d0 \uc2e4\uc9c8\uc801 \uc601\ud5a5\uc744 \uc8fc\ub294 \ud658\uacbd\uc5d0\uc11c\ub294 merge\ub85c \uc778\ud55c \uc624\ucc28\uac00 gate\ub97c \ucd08\uacfc.",
+  "config": {
+    "n_branches": 100,
+    "horizon": 10,
+    "latent_dim": 64,
+    "action_dim": 4,
+    "n_episodes": 50,
+    "tau_sweep": [
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.8,
+      1.0,
+      1.5,
+      2.0
+    ]
+  },
+  "gate_criteria": {
+    "rollout_speedup_threshold": 1.5,
+    "quality_proxy_delta_threshold": 0.05
+  },
+  "representative_numbers": {
+    "regime": "balanced",
+    "tau": 2.0,
+    "rollout_speedup": 1.111,
+    "quality_proxy_delta": 0.0
+  },
+  "regime_verdicts": {
+    "low_action": {
+      "is_non_degenerate": true,
+      "has_valid_operating_point": true,
+      "passing_taus": [
+        2.0
+      ],
+      "n_passing_taus": 1
+    },
+    "balanced": {
+      "is_non_degenerate": true,
+      "has_valid_operating_point": false,
+      "passing_taus": [],
+      "n_passing_taus": 0
+    },
+    "high_action": {
+      "is_non_degenerate": true,
+      "has_valid_operating_point": false,
+      "passing_taus": [],
+      "n_passing_taus": 0
+    }
+  },
+  "key_assumptions": [
+    "toy RSSM uses linear dynamics (A, B matrices); real RSSM is nonlinear",
+    "action-offset correction is linear (B @ delta_a); true correction is nonlinear",
+    "pairwise KL overhead O(N^2 * latent_dim) is NOT counted in speedup",
+    "noise is isotropic Gaussian; real RSSM has non-isotropic posterior",
+    "KL convergence in early steps is ASSUMED for toy model \u2014 real RSSM requires empirical validation"
+  ],
+  "full_regime_results": {
+    "low_action": {
+      "regime": "low_action",
+      "action_scale": 0.1,
+      "noise_scale": 1.0,
+      "is_non_degenerate": true,
+      "return_std": 24.610283186660794,
+      "normalized_return_std": 0.13471542502233172,
+      "tau_sweep": {
+        "0.05": {
+          "tau": 0.05,
+          "mean_speedup": 1.1142869999602885,
+          "mean_quality_delta": 5.602707779774729e-33,
+          "mean_top_k_overlap": 0.11199999999999999,
+          "mean_merge_rate": 0.10256,
+          "mean_unique_nodes": 89.744,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.1": {
+          "tau": 0.1,
+          "mean_speedup": 1.1244920922338735,
+          "mean_quality_delta": 8.368626142303874e-35,
+          "mean_top_k_overlap": 0.092,
+          "mean_merge_rate": 0.11069999999999998,
+          "mean_unique_nodes": 88.93,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.2": {
+          "tau": 0.2,
+          "mean_speedup": 1.1473888994875738,
+          "mean_quality_delta": 2.1074364069559076e-32,
+          "mean_top_k_overlap": 0.14,
+          "mean_merge_rate": 0.12844,
+          "mean_unique_nodes": 87.15599999999999,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.3": {
+          "tau": 0.3,
+          "mean_speedup": 1.1685837454698633,
+          "mean_quality_delta": 1.4927095852197125e-34,
+          "mean_top_k_overlap": 0.114,
+          "mean_merge_rate": 0.14424,
+          "mean_unique_nodes": 85.57599999999998,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.5": {
+          "tau": 0.5,
+          "mean_speedup": 1.2069640173399652,
+          "mean_quality_delta": 1.5129087493280519e-30,
+          "mean_top_k_overlap": 0.08399999999999999,
+          "mean_merge_rate": 0.17144,
+          "mean_unique_nodes": 82.85599999999998,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.8": {
+          "tau": 0.8,
+          "mean_speedup": 1.2696033468820125,
+          "mean_quality_delta": 3.4088555452842625e-34,
+          "mean_top_k_overlap": 0.11599999999999998,
+          "mean_merge_rate": 0.21226,
+          "mean_unique_nodes": 78.774,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "1.0": {
+          "tau": 1.0,
+          "mean_speedup": 1.314396312489547,
+          "mean_quality_delta": 6.808847156094363e-33,
+          "mean_top_k_overlap": 0.124,
+          "mean_merge_rate": 0.23901999999999998,
+          "mean_unique_nodes": 76.098,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "1.5": {
+          "tau": 1.5,
+          "mean_speedup": 1.4716685199159292,
+          "mean_quality_delta": 2.508648187902965e-32,
+          "mean_top_k_overlap": 0.102,
+          "mean_merge_rate": 0.32012,
+          "mean_unique_nodes": 67.988,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "2.0": {
+          "tau": 2.0,
+          "mean_speedup": 1.7156848486041039,
+          "mean_quality_delta": 9.532755260566395e-33,
+          "mean_top_k_overlap": 0.11399999999999999,
+          "mean_merge_rate": 0.41617999999999994,
+          "mean_unique_nodes": 58.382,
+          "gate_speedup_pass": true,
+          "gate_quality_pass": true,
+          "both_gates_pass": true
+        }
+      },
+      "has_valid_operating_point": true,
+      "n_passing_taus": 1,
+      "best_operating_point": {
+        "tau": 2.0,
+        "mean_speedup": 1.7156848486041039,
+        "mean_quality_delta": 9.532755260566395e-33,
+        "mean_top_k_overlap": 0.11399999999999999,
+        "mean_merge_rate": 0.41617999999999994,
+        "mean_unique_nodes": 58.382,
+        "gate_speedup_pass": true,
+        "gate_quality_pass": true,
+        "both_gates_pass": true
+      },
+      "passing_taus": [
+        2.0
+      ]
+    },
+    "balanced": {
+      "regime": "balanced",
+      "action_scale": 0.5,
+      "noise_scale": 0.5,
+      "is_non_degenerate": true,
+      "return_std": 51.694832165547,
+      "normalized_return_std": 0.23689032282109332,
+      "tau_sweep": {
+        "0.05": {
+          "tau": 0.05,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 3.55990596978283e-24,
+          "mean_top_k_overlap": 0.5880000000000001,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.1": {
+          "tau": 0.1,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 1.8131707347800883e-27,
+          "mean_top_k_overlap": 0.5900000000000001,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.2": {
+          "tau": 0.2,
+          "mean_speedup": 1.1099025773831546,
+          "mean_quality_delta": 5.13545739701901e-25,
+          "mean_top_k_overlap": 0.594,
+          "mean_merge_rate": 0.09902,
+          "mean_unique_nodes": 90.09800000000001,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.3": {
+          "tau": 0.3,
+          "mean_speedup": 1.1099025773831546,
+          "mean_quality_delta": 2.0257305425200563e-28,
+          "mean_top_k_overlap": 0.5980000000000001,
+          "mean_merge_rate": 0.09902,
+          "mean_unique_nodes": 90.09800000000001,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.5": {
+          "tau": 0.5,
+          "mean_speedup": 1.1099272413367864,
+          "mean_quality_delta": 6.968033911114801e-28,
+          "mean_top_k_overlap": 0.618,
+          "mean_merge_rate": 0.09904,
+          "mean_unique_nodes": 90.09600000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.8": {
+          "tau": 0.8,
+          "mean_speedup": 1.1100012331976816,
+          "mean_quality_delta": 7.930166945382528e-22,
+          "mean_top_k_overlap": 0.6040000000000001,
+          "mean_merge_rate": 0.09910000000000001,
+          "mean_unique_nodes": 90.09,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "1.0": {
+          "tau": 1.0,
+          "mean_speedup": 1.1101245529658403,
+          "mean_quality_delta": 2.556866955818101e-26,
+          "mean_top_k_overlap": 0.59,
+          "mean_merge_rate": 0.09919999999999998,
+          "mean_unique_nodes": 90.08,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "1.5": {
+          "tau": 1.5,
+          "mean_speedup": 1.1102726464271355,
+          "mean_quality_delta": 6.217166599162411e-26,
+          "mean_top_k_overlap": 0.5920000000000001,
+          "mean_merge_rate": 0.09931999999999999,
+          "mean_unique_nodes": 90.06800000000001,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "2.0": {
+          "tau": 2.0,
+          "mean_speedup": 1.110568723610221,
+          "mean_quality_delta": 6.456190939461087e-26,
+          "mean_top_k_overlap": 0.5780000000000001,
+          "mean_merge_rate": 0.09956,
+          "mean_unique_nodes": 90.04400000000001,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        }
+      },
+      "has_valid_operating_point": false,
+      "n_passing_taus": 0,
+      "best_operating_point": {
+        "tau": 2.0,
+        "mean_speedup": 1.110568723610221,
+        "mean_quality_delta": 6.456190939461087e-26,
+        "mean_top_k_overlap": 0.5780000000000001,
+        "mean_merge_rate": 0.09956,
+        "mean_unique_nodes": 90.04400000000001,
+        "gate_speedup_pass": false,
+        "gate_quality_pass": true,
+        "both_gates_pass": false
+      },
+      "passing_taus": []
+    },
+    "high_action": {
+      "regime": "high_action",
+      "action_scale": 1.0,
+      "noise_scale": 0.1,
+      "is_non_degenerate": true,
+      "return_std": 175.86640683449093,
+      "normalized_return_std": 0.27502565862171385,
+      "tau_sweep": {
+        "0.05": {
+          "tau": 0.05,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 2.2157200164736014e-71,
+          "mean_top_k_overlap": 0.9179999999999999,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.1": {
+          "tau": 0.1,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 1.4570603309682014e-70,
+          "mean_top_k_overlap": 0.922,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.2": {
+          "tau": 0.2,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 1.1720316930598168e-73,
+          "mean_top_k_overlap": 0.9159999999999999,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.3": {
+          "tau": 0.3,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 2.5577139569695444e-71,
+          "mean_top_k_overlap": 0.9079999999999999,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.5": {
+          "tau": 0.5,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 2.0389807678166554e-73,
+          "mean_top_k_overlap": 0.924,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "0.8": {
+          "tau": 0.8,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 1.5388682765230154e-72,
+          "mean_top_k_overlap": 0.9279999999999999,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "1.0": {
+          "tau": 1.0,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 7.668560971200431e-71,
+          "mean_top_k_overlap": 0.912,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "1.5": {
+          "tau": 1.5,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 6.71281335185007e-71,
+          "mean_top_k_overlap": 0.9279999999999999,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        },
+        "2.0": {
+          "tau": 2.0,
+          "mean_speedup": 1.1098779134295227,
+          "mean_quality_delta": 1.922559176345784e-74,
+          "mean_top_k_overlap": 0.9079999999999999,
+          "mean_merge_rate": 0.099,
+          "mean_unique_nodes": 90.10000000000002,
+          "gate_speedup_pass": false,
+          "gate_quality_pass": true,
+          "both_gates_pass": false
+        }
+      },
+      "has_valid_operating_point": false,
+      "n_passing_taus": 0,
+      "best_operating_point": {
+        "tau": 0.05,
+        "mean_speedup": 1.1098779134295227,
+        "mean_quality_delta": 2.2157200164736014e-71,
+        "mean_top_k_overlap": 0.9179999999999999,
+        "mean_merge_rate": 0.099,
+        "mean_unique_nodes": 90.10000000000002,
+        "gate_speedup_pass": false,
+        "gate_quality_pass": true,
+        "both_gates_pass": false
+      },
+      "passing_taus": []
+    }
+  }
+}

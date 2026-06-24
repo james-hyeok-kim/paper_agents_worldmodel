@@ -1,0 +1,20 @@
+#!/bin/bash
+OUTDIR="/home/jovyan/workspace/paper_agents_worldmodel/experiments/wip/puppeteer-acquisition-curve"
+LOGS_DIR="/home/jovyan/workspace/paper_agents_worldmodel/baselines/puppeteer/puppeteer/logs/corridor"
+echo "=== Progress Check: $(date '+%Y-%m-%d %H:%M:%S KST') ===" >> "$OUTDIR/progress_snapshots.log"
+echo "run_all.log tail:" >> "$OUTDIR/progress_snapshots.log"
+tail -3 "$OUTDIR/run_all.log" 2>/dev/null >> "$OUTDIR/progress_snapshots.log"
+echo "condA_s1 tail:" >> "$OUTDIR/progress_snapshots.log"
+grep -E "(eval|Pretraining|completed)" "$OUTDIR/condA_s1.log" 2>/dev/null | tail -3 >> "$OUTDIR/progress_snapshots.log"
+echo "condA_s2 tail:" >> "$OUTDIR/progress_snapshots.log"
+grep -E "(eval|Pretraining|completed)" "$OUTDIR/condA_s2.log" 2>/dev/null | tail -3 >> "$OUTDIR/progress_snapshots.log"
+echo "condB_s1 tail:" >> "$OUTDIR/progress_snapshots.log"
+grep -E "(eval|Pretraining|completed)" "$OUTDIR/condB_s1.log" 2>/dev/null | tail -3 >> "$OUTDIR/progress_snapshots.log"
+echo "condB_s2 tail:" >> "$OUTDIR/progress_snapshots.log"
+grep -E "(eval|Pretraining|completed)" "$OUTDIR/condB_s2.log" 2>/dev/null | tail -3 >> "$OUTDIR/progress_snapshots.log"
+echo "eval CSVs:" >> "$OUTDIR/progress_snapshots.log"
+for f in 1/condA_s1 2/condA_s2 1/condB_s1 2/condB_s2; do
+  echo "  $f:" >> "$OUTDIR/progress_snapshots.log"
+  cat "$LOGS_DIR/$f/eval.csv" 2>/dev/null | tail -3 >> "$OUTDIR/progress_snapshots.log" || echo "  (not yet)" >> "$OUTDIR/progress_snapshots.log"
+done
+echo "---" >> "$OUTDIR/progress_snapshots.log"

@@ -54,3 +54,8 @@ cache/
 # Experiment outputs (results.json은 포함)
 experiments/wip/*/checkpoints/
 experiments/wip/*/replay_buffer/
+
+# baseline clones / checkpoints (re-clonable)
+baselines/
+**/dreamerv3-torch/
+*.pt

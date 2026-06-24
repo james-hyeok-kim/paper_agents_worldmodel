@@ -15,4 +15,12 @@ latent space 압축, quantization, delta-encoding 관련 논문 목록.
 - "delta encoding latent states RL" — 확인 필요
 - "low-rank latent world model" — 확인 필요
 
+## latent-delta-rollout 검증 중 발견 논문
+
+| 논문 | venue | 핵심 기여 | 관련성 |
+|---|---|---|---|
+| GateL0RD (Gumbsch et al., 2021) | NeurIPS 2021 | L0 norm penalty로 sparsely changing latent states 학습 | latent temporal sparsity. FLOPs 절감 아님, 표현력 목적 |
+| DeltaRNN (Neil et al., 2016) | arXiv 2016 | temporal delta threshold로 RNN MAC 연산 skip. 최대 9-100× FLOPs 감소 | hardware-level temporal sparsity |
+| Latent Bridge (2025) | arXiv 2025 | VLM output delta를 경량 predictor로 예측 후 VLM forward pass skip. 1.65-1.73× speedup | "delta predict then skip heavy compute" 패턴 |
+
 <!-- 새 논문 발견 시 추가 -->

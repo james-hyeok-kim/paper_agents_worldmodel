@@ -1,0 +1,23 @@
+{
+  "512": {
+    "baseline_sps": 128372.0,
+    "dualrate_standard_sps": 124059.0,
+    "dualrate_fused_sps": 123851.0,
+    "speedup_standard": 0.966,
+    "speedup_fused": 0.965
+  },
+  "1024": {
+    "baseline_sps": 314876.0,
+    "dualrate_standard_sps": 236514.0,
+    "dualrate_fused_sps": 273618.0,
+    "speedup_standard": 0.751,
+    "speedup_fused": 0.869
+  },
+  "4096": {
+    "baseline_sps": 901388.0,
+    "dualrate_standard_sps": 837455.0,
+    "dualrate_fused_sps": 874265.0,
+    "speedup_standard": 0.929,
+    "speedup_fused": 0.97
+  }
+}

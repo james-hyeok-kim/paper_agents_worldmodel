@@ -1,0 +1,15 @@
+{
+  "idea": "value-bootstrapped-depth-scheduler",
+  "verdict": "FAIL",
+  "rollout_speedup": 0.7324,
+  "quality_proxy_delta": 0.0,
+  "calibration_tau": 0,
+  "routing_fraction_to_short": 0.0,
+  "best_routing_calibration": 0,
+  "best_delta_calibration": Infinity,
+  "theoretical_speedup": 0.9,
+  "K_short": 5,
+  "H_full": 15,
+  "N_Z_CURVATURE": 5,
+  "device": "cuda"
+}

@@ -1,0 +1,12 @@
+{
+  "idea": "amortized-rollout-operator",
+  "verdict": "FAIL",
+  "rollout_speedup": 0.9885,
+  "quality_proxy_delta": 0.00169,
+  "operator_dim": 128,
+  "operator_layers": 1,
+  "sequential_ms": 3.935,
+  "operator_ms": 3.981,
+  "horizon_H": 15,
+  "device": "cuda"
+}

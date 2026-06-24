@@ -1,0 +1,17 @@
+{
+  "idea": "selective-imagination-cheap-critic",
+  "verdict": "FAIL",
+  "rollout_speedup": 0.4895,
+  "quality_proxy_delta": 0.3693,
+  "proxy_correlation_pearson": 0.0847,
+  "proxy_correlation_spearman": 0.0805,
+  "proxy_corr_acceptable": false,
+  "selective_coverage": 0.6307,
+  "selection_efficiency": 1.4016,
+  "imagination_fraction_of_update": 0.3702,
+  "amdahl_feasible": false,
+  "budget_fraction_M": 0.45,
+  "z_ensemble_K": 4,
+  "horizon_H": 15,
+  "device": "cuda"
+}

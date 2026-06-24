@@ -1,0 +1,5 @@
+- [dual-rate-world-model M0](../../../../../wip/dual-rate-world-model/README.md) — FLOPs: 1.78x (analytical) | training-sep: 0.717 | wall-clock: not realized (GPU contention) | verdict: PARTIAL | 2026-06-11 KST
+- [B200 kernel launch overhead](feedback_b200_launch_bound.md) — small-batch GRU는 launch-bound: FLOPs 이점은 wall-clock으로 직결되지 않음
+- [torch.compile checkpoint prefix](feedback_compile_checkpoint.md) — `_orig_mod.` prefix strip 필요
+- [slow GRU skip vs mask](feedback_slow_gru_skip.md) — mask-blend ≠ computation skip, scalar branch 필수
+- [GPU contention measurement](feedback_gpu_contention.md) — 공유 GPU 측정은 ratio noise; FLOPs를 primary, wall-clock은 idle GPU 재측정

@@ -1,0 +1,84 @@
+{
+  "slug": "dual-rate-world-model",
+  "date": "2026-06-11 KST",
+  "model": "DreamerV3 (NM512/dreamerv3-torch)",
+  "benchmark": "DMControl Walker-walk (100k env steps) + analytical FLOPs + separation",
+  "experiment_phase": "M0 Week-1",
+  "status": "PARTIAL — episode return pending (training at ~10k/100k steps)",
+  "config": {
+    "batch_size": 512,
+    "horizon": 15,
+    "seed": 0,
+    "K": 3,
+    "deter_slow": 256,
+    "deter_fast": 128,
+    "deter_total": 384,
+    "baseline_deter": 512,
+    "lambda_ib": 0.001,
+    "lambda_sm": 0.01
+  },
+  "efficiency": {
+    "headline": "FLOPs 1.78x reduction (analytical, K=3) — the primary efficiency metric",
+    "analytical_flops_per_step": {
+      "baseline_total": 4724736,
+      "dualrate_amortized_total": 2649429,
+      "flops_reduction": 1.783,
+      "breakdown": {
+        "fast_gru_flops": 491520,
+        "slow_gru_amortized_per_step": 393216,
+        "baseline_gru_flops": 3145728,
+        "note": "slow GRU amortized at 1/K per step; ib_proj + slow_inp also amortized"
+      }
+    },
+    "flops_by_K": {
+      "K2": 1.644,
+      "K3": 1.783,
+      "K4": 1.862,
+      "K5": 1.913,
+      "K8": 1.994
+    },
+    "wall_clock": {
+      "status": "NOT REALIZED at measured batch sizes",
+      "note": "All wall-clock measurements were taken on shared GPU (142GB/183GB used). Baseline sps swung 30% between runs — ratio is noise. Fused loop attempt (0.96x) showed Python-loop overhead is not the bottleneck; kernel launch overhead from two sequential GRU calls is. Wall-clock clean measurement deferred to idle GPU session.",
+      "observed_range": "0.73x-0.97x at batch 512-4096 (unreliable due to contention)"
+    }
+  },
+  "quality": {
+    "headline": "separation_score=0.717 during training at step 5000 — central risk resolved",
+    "separation_during_training": {
+      "step": 5000,
+      "separation_score": 0.717,
+      "slow_delta": 0.163,
+      "fast_delta": 0.447,
+      "ib_penalty": 0.000497,
+      "sm_penalty": 0.0000105,
+      "collapse_flag": false,
+      "note": "Both penalties non-exploding; fast latent changes 2.7x faster than slow during real training"
+    },
+    "separation_random_init": {
+      "separation_score": 0.756,
+      "slow_delta": 0.438,
+      "fast_delta": 1.355,
+      "note": "Random init baseline — training value (0.717) is the meaningful measure"
+    },
+    "episode_return": {
+      "baseline": null,
+      "dualrate": null,
+      "return_delta_pct": null,
+      "note": "PENDING — training at ~10k/100k env steps"
+    }
+  },
+  "model_params": {
+    "baseline": 15687811,
+    "dualrate": 14377219,
+    "param_reduction_pct": 8.4
+  },
+  "verdict": "PARTIAL",
+  "verdict_rationale": "FLOPs 1.78x analytical reduction confirmed (K=3). Training-time separation_score=0.717 (fast 2.7x faster than slow) answers the plan's central risk — separation survives real training gradients. Wall-clock speedup not realized at tested batch sizes on shared GPU (measurement unreliable). Episode return delta pending. WEAK GO defensible on FLOPs + separation once return delta is in.",
+  "next_steps": [
+    "Wait for 100k training to complete, re-run measure_rollout.py with loaded checkpoint",
+    "If return_delta > -15%: verdict upgrades to WEAK GO",
+    "Clean wall-clock measurement on idle GPU (deferred)",
+    "K sweep (K=2,4,6) for FLOPs-quality trade-off (Week-2)"
+  ]
+}

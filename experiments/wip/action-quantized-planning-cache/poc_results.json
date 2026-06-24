@@ -1,0 +1,12 @@
+{
+  "idea": "action-quantized-planning-cache",
+  "verdict": "FAIL",
+  "rollout_speedup": 0.8359,
+  "quality_proxy_delta": 0.0253,
+  "batch_halving_speedup": 1.0305,
+  "N_samples": 512,
+  "horizon_H": 10,
+  "n_iters": 5,
+  "elite_frac": 0.1,
+  "device": "cuda"
+}

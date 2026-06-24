@@ -1,0 +1,16 @@
+{
+  "idea": "policy-gated-progressive-wm",
+  "verdict": "FAIL",
+  "rollout_speedup": 0.4845,
+  "quality_proxy_delta": 0.1163,
+  "cheap_routing_rate_onpolicy": 0.0744,
+  "actual_cheap_routing_rate": 0.0009,
+  "cheap_model_flop_ratio": 0.7053,
+  "theoretical_speedup_70pct": 1.2599,
+  "gating_correlation": 0.0367,
+  "value_gap_threshold": 0.1,
+  "cheap_dim": 128,
+  "expensive_dim": 512,
+  "horizon_H": 15,
+  "device": "cuda"
+}

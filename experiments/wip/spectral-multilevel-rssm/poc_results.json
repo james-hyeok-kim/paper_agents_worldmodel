@@ -1,0 +1,17 @@
+{
+  "idea": "spectral-multilevel-rssm",
+  "kill_criterion_met": false,
+  "n_spectral_modes": 1,
+  "mode_verdict": "BI-MODAL (1 mode) \u2014 KILL: reduces to dual-rate",
+  "timescale_stats": {
+    "min": 1.0,
+    "max": 3.0,
+    "mean": 2.1875,
+    "std": 0.42847841252506524
+  },
+  "l2_results": [],
+  "l3_results": [],
+  "pareto_advantage_over_l2": false,
+  "verdict": "KILL",
+  "device": "cuda"
+}

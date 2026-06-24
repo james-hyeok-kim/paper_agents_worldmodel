@@ -1,0 +1,22 @@
+{
+  "gpu": {
+    "device": "cuda:0",
+    "baseline_ms": 16.939,
+    "twostage_ms": 18.024,
+    "speedup": 0.94
+  },
+  "cpu": {
+    "device": "cpu",
+    "baseline_ms": 4686.732,
+    "twostage_ms": 4636.484,
+    "speedup": 1.011
+  },
+  "_verdict": {
+    "verdict": "FAIL",
+    "claim": "neither GPU nor CPU >=1.2x plan wall-clock -> 2-stage adds launches, vectorized qnet not the wall-clock bottleneck",
+    "gate": 1.2,
+    "gpu_speedup": 0.94,
+    "cpu_speedup": 1.011,
+    "note": "cheap-rank=distilled scalar MLP (best case). elite stubbed (timing only). config: 512 samples, 6 iter, H3, 64 elites, num_q5(avg=2 subsampled), latent512."
+  }
+}

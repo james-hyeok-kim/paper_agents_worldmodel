@@ -1,0 +1,52 @@
+{
+  "verdict": "CONDITIONAL-GO",
+  "gate": {
+    "rollout_speedup": 1.9279,
+    "rollout_speedup_threshold": 1.5,
+    "rollout_speedup_pass": true,
+    "quality_proxy_delta": 0.0,
+    "quality_proxy_delta_threshold": 0.05,
+    "quality_proxy_delta_pass": true
+  },
+  "latency": {
+    "baseline_mean_ms": 402.461,
+    "dualrate_mean_ms": 208.761,
+    "speedup": 1.9279
+  },
+  "steps": {
+    "baseline_mean": 12.94,
+    "dualrate_mean": 12.94
+  },
+  "flops": {
+    "baseline_unit": 36864,
+    "dualrate_unit": 9557.3,
+    "theoretical_speedup": 3.8571
+  },
+  "quality_proxy": {
+    "baseline_mean_mse": 0.212541,
+    "dualrate_mean_mse": 0.198122,
+    "quality_proxy_delta": 0.0
+  },
+  "separation": {
+    "slow_cosine_sim_mean": 0.6161,
+    "fast_cosine_sim_mean": 0.3988,
+    "slow_smoothness_mean": 0.3594,
+    "separation_score_mean": 0.7786,
+    "fast_ratio_mean": 0.7786,
+    "slow_delta_mean": 0.0884,
+    "fast_delta_mean": 0.3269,
+    "collapse_risk_note": "OK \u2014 fast branch changes more than slow (structural separation achieved)"
+  },
+  "config": {
+    "n_episodes": 50,
+    "horizon": 15,
+    "latency_base_ms": 1.0,
+    "slow_hidden": 128,
+    "fast_hidden": 64,
+    "K": 3,
+    "obs_dim": 32,
+    "slow_dim": 16,
+    "fast_dim": 16
+  },
+  "total_elapsed_sec": 35.08
+}

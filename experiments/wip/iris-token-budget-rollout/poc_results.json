@@ -1,0 +1,15 @@
+{
+  "idea": "iris-token-budget-rollout",
+  "verdict": "FAIL",
+  "rollout_speedup": 0.6628,
+  "quality_proxy_delta": 0.0004,
+  "quality_easy_tokens_delta": -0.0007,
+  "transformer_fraction": 0.2434,
+  "amdahl_feasible": false,
+  "avg_depth_fraction": 0.56,
+  "router_correlation": -0.011,
+  "depth_budget": 0.45,
+  "reward_sensitive_frac": 0.2,
+  "n_layers": 12,
+  "device": "cuda"
+}

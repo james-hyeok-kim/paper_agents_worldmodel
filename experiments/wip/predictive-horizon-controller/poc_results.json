@@ -1,0 +1,16 @@
+{
+  "slug": "predictive-horizon-controller",
+  "verdict": "FAIL",
+  "gate": {
+    "rollout_speedup": 1.0,
+    "quality_proxy_delta": 0.0,
+    "rollout_speedup_pass": false,
+    "quality_proxy_delta_pass": true
+  },
+  "variants": {
+    "baseline": 15,
+    "learned_steps": 15,
+    "learned_quality": 0.0,
+    "fixed_quality": 0.6999
+  }
+}

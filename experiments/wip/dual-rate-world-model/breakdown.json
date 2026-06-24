@@ -1,0 +1,33 @@
+{
+  "config": {
+    "dyn_deter": 512,
+    "dyn_hidden": 512,
+    "dyn_stoch": 32,
+    "dyn_discrete": 32,
+    "batch_size": 64,
+    "horizon": 15
+  },
+  "imagination_timing_ms": {
+    "full_loop_mean": 53.492,
+    "dynamics_only_mean": 52.004,
+    "get_feat_only_mean": 0.594,
+    "gru_cell_only_mean": 3.265,
+    "dynamics_fraction_in_imagination": 1.0
+  },
+  "training_step_timing_ms": {
+    "full_train_step_mean": null
+  },
+  "flops_analysis": {
+    "gru_flops_per_step": 3145728,
+    "total_dynamics_flops_per_step": 5773312,
+    "imagination_total_flops": 5542379520,
+    "gru_fraction_of_dynamics": 0.5449
+  },
+  "dual_rate_speedup_ceiling": {
+    "K3_dynamics_ceiling": 0.7778,
+    "note": "With K=3 and deter_slow=256 deter_fast=128: imagination saves ~(128*2/3 + 256*1/3)/384 = 44% of deter compute in GRU",
+    "estimated_gru_flops_speedup": 3.556,
+    "baseline_gru_flops_per_step": 3145728,
+    "dualrate_gru_flops_per_step_amortized": 884736
+  }
+}

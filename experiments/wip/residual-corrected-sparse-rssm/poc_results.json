@@ -1,0 +1,18 @@
+{
+  "idea": "residual-corrected-sparse-rssm",
+  "verdict": "FAIL",
+  "rollout_speedup": 0.7234,
+  "quality_proxy_delta": 0.2511,
+  "gru_fraction_of_transition": 0.4115,
+  "amdahl_feasible": false,
+  "delta_h_rank_90": 34,
+  "delta_h_rank_95": 37,
+  "delta_h_top32_energy": 0.8705,
+  "delta_h_is_low_rank": true,
+  "drift_carry_mean": 1.4309,
+  "drift_corrector_mean": 0.2511,
+  "drift_reduction_ratio": 5.7,
+  "corrector_rank": 64,
+  "anchor_interval_K": 4,
+  "device": "cuda"
+}

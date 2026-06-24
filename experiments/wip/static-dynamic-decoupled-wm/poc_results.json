@@ -1,0 +1,13 @@
+{
+  "slug": "static-dynamic-decoupled-wm",
+  "verdict": "FAIL",
+  "gate": {
+    "rollout_speedup": 1.204,
+    "quality_proxy_delta": 0.00451,
+    "rollout_speedup_pass": false,
+    "quality_proxy_delta_pass": true
+  },
+  "flops_speedup_theoretical": 1.195,
+  "static_variance_normal": 0.0,
+  "static_variance_change": 1e-06
+}
